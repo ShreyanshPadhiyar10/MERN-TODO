@@ -1,0 +1,1 @@
+export const DBName: string = "mern-todo"
