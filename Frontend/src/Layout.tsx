@@ -1,16 +1,15 @@
-import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from './components/Header/Header'
 
-interface Props { }
 
-function Layout(props: Props) {
-    const { } = props
-
+function Layout() {
     return (
         <>
-            <Header />
-            <Outlet />
+            <div className='h-screen w-screen bg-cover bg-center' style={{ backgroundImage: "url('/sunset.jpeg')" }}>
+                <Header />
+                {/* <Home /> */}
+                <Outlet />
+            </div>
         </>
     )
 }

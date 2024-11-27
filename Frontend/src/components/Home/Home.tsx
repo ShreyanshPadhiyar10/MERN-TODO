@@ -1,18 +1,23 @@
-import React from 'react'
-import TodoCard from '../Card/TodoCard'
+// import { useEffect, useState } from 'react'
+// import { useAuth } from '../../hooks/useAuth'
+// import TodoCard from '../Card/TodoCard'
+// import SearchBar from '../SearchBar/SearchBar'
+// import { Navigate } from 'react-router-dom'
 
-interface Props { }
-
-function Home(props: Props) {
-    const { } = props
+function Home() {
+    // const [user, setUser] = useState(false)
+    // const cookie = document.cookie
+    // console.log(cookie);
+    // const isAuthenticated = useAuth()
+    // useEffect(() => {
+    //     if (cookie) {
+    //         setUser(true)
+    //     }
+    // }, [cookie, document.cookie])
 
     return (
         <>
-            <div className='h-screen w-screen bg-cover bg-center' style={{ backgroundImage: "url('/sunset.jpeg')" }}>
-                <div className='pt-24'>
-                    <TodoCard />
-                </div>
-            </div>
+            
         </>
     )
 }
