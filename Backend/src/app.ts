@@ -14,7 +14,9 @@ app.use(cookieParser())
 
 
 import userRouter from "./routes/user.routes"
+import todoRouter from "./routes/todo.routes"
 
 app.use("/api/v1/users", userRouter)
+app.use("/api/v1/todo", todoRouter)
 
 export { app }

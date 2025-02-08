@@ -43,7 +43,7 @@ const userSlice = createSlice({
       })
       .addCase(getCurrentLoginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = action.payload.data; // Adjust based on your API response
+        state.user = action.payload;
       })
       .addCase(getCurrentLoginUser.rejected, (state, action) => {
         state.loading = false;

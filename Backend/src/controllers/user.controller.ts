@@ -154,4 +154,15 @@ const currentUser = asyncHandler(async (req, res) => {
         )
 })
 
-export { registerUser, generateAccessAndRefreshToken, loginUser, logoutUser, refreshAccessToken, currentUser }
+const getUserById = asyncHandler(async (req, res) => {
+    const { userId } = req.params
+
+    const user = await User.findById(userId).select("-password")
+    if (!user) {
+        return res.status(404).send({ message: "User not found" })
+    }
+
+    return res.status(200).json(user)
+})
+
+export { registerUser, generateAccessAndRefreshToken, loginUser, logoutUser, refreshAccessToken, currentUser, getUserById }

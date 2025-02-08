@@ -29,7 +29,7 @@ function Header() {
     }, [cookie, dispatch])
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data = useSelector((state: any) => state?.user?.user)
+    const data = useSelector((state: any) => state?.user?.user?.data)
 
     useEffect(() => {
         if (data) {
@@ -42,7 +42,7 @@ function Header() {
         const response = await axios.post("/api/v1/users/logout")
         console.log(response);
         dispatch(logoutAction())
-        if(response) {
+        if (response) {
             navigate("/login")
         }
     }
@@ -82,7 +82,7 @@ function Header() {
                         <div>
                             <NavLink to={"/add-todo"}>
                                 <button className='flex bg-transparent border-2 border-black text-black font-bold py-2 px-4 rounded hover:border-black hover:backdrop-blur-3xl'>
-                                    <h4>Add Task</h4>
+                                    <h4>Add Todo</h4>
                                     <IoIosAdd size={'1.4em'} className='ml-2 bg-gray-900 text-white rounded-full' />
                                 </button>
                             </NavLink>
@@ -121,7 +121,7 @@ function Header() {
                             <li className='hover:border border-black mx-3 mb-2 rounded-lg'>
                                 <NavLink to={"/add-todo"}>
                                     <button className='flex bg-transparent text-black font-bold py-2 px-4'>
-                                        <h4>Add Task</h4>
+                                        <h4>Add Todo</h4>
                                     </button>
                                 </NavLink>
                             </li>
@@ -134,7 +134,12 @@ function Header() {
                                             </button>
                                         </NavLink>
                                     </li>
-                                    : ""
+                                    :
+                                    <li className='hover:border border-black mx-3 mb-3 rounded-lg'>
+                                        <button onClick={handleLogout} className="bg-transparent text-black font-bold py-2 px-4">
+                                            Logout <span aria-hidden="true">&rarr;</span>
+                                        </button>
+                                    </li>
                             }
                         </ul>
                     </div>

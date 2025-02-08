@@ -1,5 +1,5 @@
-import SearchBar from './SearchBar/SearchBar'
-import TodoCard from './Card/TodoCard'
+import SearchBar from '../SearchBar/SearchBar'
+import TodoCard from '../Card/TodoCard'
 
 function TodoPage() {
   return (
