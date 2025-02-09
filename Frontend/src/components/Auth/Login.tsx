@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import TextInput from "../FormInputs/TextInput"
 import PasswordInput from "../FormInputs/PasswordInput"
 import axios from "axios"
@@ -8,7 +8,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorText, setErrorText] = useState("");
-  const location = useLocation()
+  // const location = useLocation()
   const navigate = useNavigate()
 
   const handleLogin = async (e) => {
@@ -20,9 +20,9 @@ function Login() {
     })
 
     if (response) {
+      navigate("/add-todo")
       setUsername("")
       setPassword("")
-      navigate("/todo")
       setErrorText("")
     }
   }

@@ -23,8 +23,6 @@ const ProtectedRoute = () => {
     }
     if (!isAuthenticated && !loading) {
       route("/login")
-    } else {
-      route("/todo")
     }
   }, [loading, isAuthenticated, cookie, dispatch, route])
 
