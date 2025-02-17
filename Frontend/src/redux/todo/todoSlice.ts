@@ -1,6 +1,6 @@
 // src/redux/todoSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { axiosInstance } from '../../axios/axios';
 
 interface TodoState {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,7 +19,7 @@ const initialState: TodoState = {
 export const getTodos = createAsyncThunk(
   'getTodos',
   async () => {
-    const response = await axios.get('/api/v1/todo/fetch-todos');
+    const response = await axiosInstance.get('/api/v1/todo/fetch-todos');
     return response.data;
   }
 );

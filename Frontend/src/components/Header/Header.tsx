@@ -7,7 +7,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { getCurrentLoginUser, logoutAction } from '../../redux/user/userSlice'
 import { useSelector } from 'react-redux'
 import { AppDispatch } from '../../app/store'
-import axios from 'axios'
+import { axiosInstance } from '../../axios/axios'
 
 
 function Header() {
@@ -39,7 +39,7 @@ function Header() {
 
     const handleLogout = async (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
-        const response = await axios.post("/api/v1/users/logout")
+        const response = await axiosInstance.post("/api/v1/users/logout")
         console.log(response);
         dispatch(logoutAction())
         if (response) {

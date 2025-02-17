@@ -1,6 +1,6 @@
 // src/redux/user/userSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { axiosInstance } from '../../axios/axios';
 
 interface UserState {
   user: any | null;
@@ -18,7 +18,7 @@ const initialState: UserState = {
 export const getCurrentLoginUser = createAsyncThunk(
   'fetchUser',
   async () => {
-    const response = await axios.get('/api/v1/users/current-user');
+    const response = await axiosInstance.get('/api/v1/users/current-user');
     return response.data; // Assuming the response contains the user data and tokens
   }
 );

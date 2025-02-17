@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom"
 import TextInput from "../FormInputs/TextInput"
 import PasswordInput from "../FormInputs/PasswordInput"
-import axios from "axios"
 import { useState } from "react";
+import { axiosInstance } from "../../axios/axios";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -14,7 +14,7 @@ function Login() {
 
   const handleSignup = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    const response = await axios.post("/api/v1/users/register", { username, email, fullName, password }).catch((err) => {
+    const response = await axiosInstance.post("/api/v1/users/register", { username, email, fullName, password }).catch((err) => {
       setErrorText(err.response.data.message)
     })
 

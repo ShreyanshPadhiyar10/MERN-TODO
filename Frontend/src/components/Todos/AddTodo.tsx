@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TextInput from "../FormInputs/TextInput";
-import axios from "axios";
+import { axiosInstance } from "../../axios/axios";
 
 function AddTodo() {
   const [title, setTitle] = useState("");
@@ -13,7 +13,7 @@ function AddTodo() {
   const handleAddTodo = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     console.log(status);
-    const response = await axios.post("/api/v1/todo/createTodo", { title, description, status }).catch((err) => {
+    const response = await axiosInstance.post("/api/v1/todo/createTodo", { title, description, status }).catch((err) => {
       setErrorText(err.response.data.message)
     })
     if (response) {

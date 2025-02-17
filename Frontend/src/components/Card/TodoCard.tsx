@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTodos } from '../../redux/todo/todoSlice';
 import { AppDispatch } from '../../app/store';
 import { ring } from 'ldrs';
+import { axiosInstance } from '../../axios/axios';
 
 // type Task = {
 //     id: string;
@@ -101,7 +101,7 @@ function TodoCard() {
             const order = destination.index;
             const todoIds = newTaskIds.map((task) => task._id);
             console.log("ids ", todoIds);
-            axios.patch(`/api/v1/todo/update`, { todoId, order, todoIds })
+            axiosInstance.patch(`/api/v1/todo/update`, { todoId, order, todoIds })
                 .then((response) => {
                     console.log(response.data);
                     dispatch(getTodos());
@@ -131,7 +131,7 @@ function TodoCard() {
         const status = destination.droppableId;
         const order = destination.index;
         const todoIds = finishTaskIds.map((task) => task._id);
-        axios.patch(`/api/v1/todo/update`, { todoId, status, order, todoIds })
+        axiosInstance.patch(`/api/v1/todo/update`, { todoId, status, order, todoIds })
             .then((response) => {
                 console.log(response.data);
                 dispatch(getTodos());
