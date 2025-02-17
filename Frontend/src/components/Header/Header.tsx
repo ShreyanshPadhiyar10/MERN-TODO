@@ -37,7 +37,7 @@ function Header() {
         }
     }, [cookie, data])
 
-    const handleLogout = async (e) => {
+    const handleLogout = async (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
         const response = await axios.post("/api/v1/users/logout")
         console.log(response);

@@ -11,7 +11,7 @@ function Login() {
   // const location = useLocation()
   const navigate = useNavigate()
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     const response = await axios.post("/api/v1/users/login",
       { username, password },

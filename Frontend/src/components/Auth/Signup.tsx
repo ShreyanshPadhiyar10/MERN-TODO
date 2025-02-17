@@ -12,7 +12,7 @@ function Login() {
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate()
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     const response = await axios.post("/api/v1/users/register", { username, email, fullName, password }).catch((err) => {
       setErrorText(err.response.data.message)

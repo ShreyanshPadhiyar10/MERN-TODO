@@ -10,7 +10,7 @@ function AddTodo() {
   const [errorText, setErrorText] = useState("");
   const navigate = useNavigate()
 
-  const handleAddTodo = async (e) => {
+  const handleAddTodo = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     console.log(status);
     const response = await axios.post("/api/v1/todo/createTodo", { title, description, status }).catch((err) => {
