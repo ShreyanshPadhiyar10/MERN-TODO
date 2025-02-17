@@ -13,7 +13,7 @@ function Login() {
 
   const handleLogin = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    const response = await axiosInstance.post("/api/v1/users/login",
+    const response = await axiosInstance.post("/users/login",
       { username, password },
     ).catch((err) => {
       setErrorText(err.response.data.message)
