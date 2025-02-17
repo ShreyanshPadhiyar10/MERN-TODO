@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api/v1': 'https://mern-todo-backend-rk4m.onrender.com'
+      '/api/v1': {
+        target: 'https://mern-todo-backend-rk4m.onrender.com',
+        changeOrigin: true,
+        secure: false,
+      },
     }
   }
 })
