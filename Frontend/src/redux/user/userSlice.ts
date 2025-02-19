@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { axiosInstance } from '../../axios/axios';
 
 interface UserState {
-  user: any | null;
+  user: object | null;
   loading: boolean;
   error: string | null;
 }

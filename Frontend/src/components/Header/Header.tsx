@@ -24,6 +24,7 @@ function Header() {
 
     useEffect(() => {
         if (cookie) {
+            console.log(cookie);
             dispatch(getCurrentLoginUser())
         }
     }, [cookie, dispatch])
@@ -33,6 +34,7 @@ function Header() {
 
     useEffect(() => {
         if (data) {
+            console.log("helloo");
             setUser(data.username)
         }
     }, [cookie, data])

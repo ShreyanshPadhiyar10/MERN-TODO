@@ -7,9 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/v1': {
-        target: 'https://mern-todo-backend-rk4m.onrender.com',
+        target: 'https://mern-todo-pink.vercel.app/',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     }
   }

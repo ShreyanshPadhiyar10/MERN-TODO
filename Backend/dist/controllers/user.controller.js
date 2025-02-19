@@ -76,7 +76,7 @@ const loginUser = (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(void 
         .status(200)
         .cookie("accessToken", accessToken)
         .cookie("refreshToken", refreshToken)
-        .json(new apiResponse_1.apiResponse(200, "User loggedin successfully", { accessToken, refreshToken }));
+        .json(new apiResponse_1.apiResponse(200, "User loggedin successfully", { accessToken, refreshToken }, true));
 }));
 exports.loginUser = loginUser;
 const logoutUser = (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {

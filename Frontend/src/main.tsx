@@ -11,7 +11,6 @@ import TodoPage from './components/Todos/TodoPage.tsx'
 import ProtectedRoute from './ProtectedRoute.tsx'
 import AddTodo from './components/Todos/AddTodo.tsx'
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <BrowserRouter>
