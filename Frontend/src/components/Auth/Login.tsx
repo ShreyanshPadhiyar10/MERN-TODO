@@ -12,7 +12,7 @@ function Login() {
   const navigate = useNavigate()
 
   const handleLogin = async (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+    e.preventDefault() 
     const response = await axiosInstance.post('/api/v1/users/login',
       { username, password },
     ).catch((err) => {

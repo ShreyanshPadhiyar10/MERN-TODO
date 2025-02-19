@@ -19,6 +19,7 @@ export const getCurrentLoginUser = createAsyncThunk(
   'fetchUser',
   async () => {
     const response = await axiosInstance.get('/api/v1/users/current-user');
+    console.log("hiiiiiii",response.data);
     return response.data; // Assuming the response contains the user data and tokens
   }
 );
