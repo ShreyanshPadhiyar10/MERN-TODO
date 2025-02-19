@@ -26,6 +26,7 @@ function Header() {
         if (cookie) {
             console.log(cookie);
             dispatch(getCurrentLoginUser())
+            console.log("called");
         }
     }, [cookie, dispatch])
 

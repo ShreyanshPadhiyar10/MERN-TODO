@@ -11,7 +11,8 @@ const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)({
     origin: process.env.CORS_ORIGIN,
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 app.use(express_1.default.json({ limit: "20kb" }));
 app.use(express_1.default.urlencoded({ extended: true }));
