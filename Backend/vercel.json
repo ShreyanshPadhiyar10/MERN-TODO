@@ -1,6 +1,6 @@
 {
   "routes": [
-      {"src": "/(.*)", "destination": "/"}
+      {"src": "/(.*)", "dest": "/"}
   ],
   "builds": [
     {
