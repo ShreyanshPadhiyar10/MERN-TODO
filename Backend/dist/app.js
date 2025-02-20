@@ -12,16 +12,14 @@ exports.app = app;
 app.use((0, cors_1.default)({
     origin: "https://mern-todo-pink.vercel.app",
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
 }));
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://mern-todo-pink.vercel.app");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "https://mern-todo-pink.vercel.app");
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//     next();
+// });
 app.options("*", (req, res) => {
     res.status(204).end();
 });
