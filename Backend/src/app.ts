@@ -2,8 +2,9 @@ import express from "express"
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser"
+import { DBConnect } from "./db/connection";
 
-const app = express()
+export const app = express()
 
 app.use(cors({
     origin: "https://mern-todo-pink.vercel.app",
@@ -42,9 +43,8 @@ DBConnect()
 
 import userRouter from "./routes/user.routes"
 import todoRouter from "./routes/todo.routes"
-import { DBConnect } from "./db/connection";
 
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/todo", todoRouter)
 
-export { app }
+// export { app }
