@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
-const app_1 = require("./app");
-const connection_1 = require("./db/connection");
+import { app } from "./app";
+import { DBConnect } from "./db/connection";
 dotenv_1.default.config({
     path: "./env"
 });
-(0, connection_1.DBConnect)()
+(0, DBConnect)()
     .then(() => {
-    app_1.app.listen(process.env.PORT || 8000, () => {
+    app.listen(process.env.PORT || 8000, () => {
         console.log(`Server is running on port ${process.env.PORT || 8000}`);
     });
 })
