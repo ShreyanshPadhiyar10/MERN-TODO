@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 const express_1 = __importDefault(require("express"));
-const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
@@ -27,19 +26,8 @@ app.use((req, res, next) => {
 app.use(express_1.default.json({ limit: "20kb" }));
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
-dotenv_1.default.config({
-    path: "./env"
-});
-(0, connection_1.DBConnect)()
-    .then(() => {
-    app.listen(process.env.PORT || 8000, () => {
-        console.log(`Server is running on port ${process.env.PORT || 8000}`);
-    });
-})
-    .catch((err) => console.log("Connection error", err));
 const user_routes_1 = __importDefault(require("./routes/user.routes"));
 const todo_routes_1 = __importDefault(require("./routes/todo.routes"));
-const connection_1 = require("./db/connection");
 app.use("/api/v1/users", user_routes_1.default);
 app.use("/api/v1/todo", todo_routes_1.default);
 //# sourceMappingURL=app.js.map
