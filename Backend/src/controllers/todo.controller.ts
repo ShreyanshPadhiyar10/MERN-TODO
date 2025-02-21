@@ -6,7 +6,6 @@ import { asyncHandler } from "../utils/asyncHandler";
 const createTodo = asyncHandler(async (req, res) => {
   const { title, description, status } = req.body;
 
-  console.log(req.body);
   if (!description) {
     return res.status(400).send({ message: "Todo description is required." })
   }

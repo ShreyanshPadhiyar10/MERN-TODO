@@ -62,7 +62,6 @@ const registerUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
     let { username, password } = req.body
-    console.log("object");
 
     if (!username || !password) {
         return res.status(400).send({ message: "username or password is required." })

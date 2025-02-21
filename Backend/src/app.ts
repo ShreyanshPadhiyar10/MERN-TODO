@@ -4,21 +4,26 @@ import cookieParser from "cookie-parser"
 
 const app = express()
 
+const allowedOrigins = [
+    "http://localhost:5173",  // Local Vite frontend
+    "https://mern-todo-pink.vercel.app"  // Deployed frontend
+];
+
 app.use(cors({
-    origin: "https://mern-todo-pink.vercel.app",
+    origin: allowedOrigins,
     credentials: true,
 }))
-
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://mern-todo-pink.vercel.app");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-    if (req.method === "OPTIONS") {
-        return res.status(204).end();
+    const origin: any = req?.headers?.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader("Access-Control-Allow-Origin", origin); // ✅ Set the specific origin
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     }
-
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200); // Handle preflight requests
+    }
     next();
 });
 

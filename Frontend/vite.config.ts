@@ -7,7 +7,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/v1': {
-        target: 'https://mern-todo-api-one.vercel.app',
+        // target: 'https://mern-todo-api-one.vercel.app',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: true,
       },

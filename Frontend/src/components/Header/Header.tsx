@@ -11,6 +11,7 @@ import { axiosInstance } from '../../axios/axios'
 
 
 function Header() {
+    console.log("header");
     const [nav, setNav] = useState(false);
     const [user, setUser] = useState("")
     const cookie = document.cookie

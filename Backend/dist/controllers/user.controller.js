@@ -59,7 +59,6 @@ const registerUser = (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(vo
 exports.registerUser = registerUser;
 const loginUser = (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let { username, password } = req.body;
-    console.log("object");
     if (!username || !password) {
         return res.status(400).send({ message: "username or password is required." });
     }

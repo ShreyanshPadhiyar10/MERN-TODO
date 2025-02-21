@@ -19,7 +19,6 @@ const apiResponse_1 = require("../utils/apiResponse");
 const asyncHandler_1 = require("../utils/asyncHandler");
 const createTodo = (0, asyncHandler_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { title, description, status } = req.body;
-    console.log(req.body);
     if (!description) {
         return res.status(400).send({ message: "Todo description is required." });
     }
